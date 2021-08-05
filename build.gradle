@@ -25,6 +25,7 @@ ext{
 
 dependencies {
     implementation 'junit:junit:4.13.1'
+    implementation 'net.andreinc:mockneat:0.4.7'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation 'org.assertj:assertj-core:3.12.2'
     testImplementation 'org.slf4j:slf4j-simple:1.7.29'
