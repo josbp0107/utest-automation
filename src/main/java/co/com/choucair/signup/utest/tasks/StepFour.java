@@ -17,7 +17,7 @@ public class StepFour implements Task {
     }
 
     public static char[] password(){
-        int length = 12;
+        int length = 16;
         String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-/.^&*_!@%=+>)";
         Random rd = new Random();
         char[] password = new char[length];
