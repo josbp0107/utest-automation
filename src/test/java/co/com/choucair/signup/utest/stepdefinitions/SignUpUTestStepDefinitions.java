@@ -25,7 +25,7 @@ public class SignUpUTestStepDefinitions {
     @When("^he enters each data in the different inputs$")
     public void heEntersEachDataInTheDifferentInputs() {
         // Write code here that turns the phrase above into concrete actions
-        OnStage.theActorInTheSpotlight().attemptsTo(StepOne.addData(), StepTwo.addAddress(), StepThree.addDevices());
+        OnStage.theActorInTheSpotlight().attemptsTo(StepOne.addData(), StepTwo.addAddress(), StepThree.addDevices(), StepFour.addPassword());
     }
 
     @Then("^he fill all fields and completes the registration$")
