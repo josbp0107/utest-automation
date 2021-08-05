@@ -1,6 +1,7 @@
 package co.com.choucair.signup.utest.tasks;
 
 import co.com.choucair.signup.utest.userinterface.StepTwoPage;
+import co.com.choucair.signup.utest.util.GenerateData;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
@@ -13,12 +14,13 @@ public class StepTwo implements Task {
         return Tasks.instrumented(StepTwo.class);
     }
 
+    GenerateData gd = new GenerateData();
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Enter.theValue("Sincelejo").into(StepTwoPage.CITY),
+        actor.attemptsTo(Enter.theValue(gd.city()).into(StepTwoPage.CITY),
                 Click.on(StepTwoPage.LIST_CITY),
-                Enter.theValue("700001").into(StepTwoPage.ZIP_CODE),
+                Enter.theValue(gd.zipCode()).into(StepTwoPage.ZIP_CODE),
                 Click.on(StepTwoPage.DEVICE_BUTTON)
                 );
     }
