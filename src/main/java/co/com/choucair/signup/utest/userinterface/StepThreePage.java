@@ -12,9 +12,9 @@ public class StepThreePage {
             .located(By.name("handsetModelId"));
     public static final Target SELECT_MODEL = Target.the("Focus on Model field")
             .located(By.xpath("//section//ul/li/div[7]"));
-    public static final Target OS_FIELD = Target.the("Target on Model field")
+    public static final Target OS_FIELD = Target.the("Target on Os field")
             .located(By.name("handsetOSId"));
-    public static final Target SELECT_OS = Target.the("Focus on Model field")
+    public static final Target SELECT_OS = Target.the("Focus on Os field")
             .located(By.xpath("//section//ul/li/div[3]"));
     public static final Target LAST_STEP_BUTTON = Target.the("Click on Next: Last Step")
             .located(By.xpath("//a[@class='btn btn-blue pull-right']"));
