@@ -1,6 +1,7 @@
 package co.com.choucair.signup.utest.stepdefinitions;
 
 import co.com.choucair.signup.utest.tasks.Go;
+import co.com.choucair.signup.utest.tasks.StepOne;
 import co.com.choucair.signup.utest.tasks.SignUp;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -26,11 +27,11 @@ public class SignUpUTestStepDefinitions {
     @When("^he enters each data in the different inputs$")
     public void heEntersEachDataInTheDifferentInputs() {
         // Write code here that turns the phrase above into concrete actions
-
+        OnStage.theActorInTheSpotlight().attemptsTo(StepOne.addData());
     }
 
-    @Then("^he fill all inputs and go next step$")
-    public void heFillAllInputsAndGoNextStep() {
+    @Then("^he fill all fields and completes the registration$")
+    public void heFillAllFieldsAndCompletesTheRegistration() {
         // Write code here that turns the phrase above into concrete actions
 
     }
