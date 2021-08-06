@@ -12,8 +12,16 @@ import java.util.Random;
 
 public class StepFour implements Task {
 
-    public static StepFour addPassword() {
-        return Tasks.instrumented(StepFour.class);
+    private String password;
+    private String confirmPassword;
+
+    public StepFour(String password, String confirmPassword) {
+        this.password = password;
+        this.confirmPassword = confirmPassword;
+    }
+
+    public static StepFour addPassword(String password, String confirmPassword) {
+        return Tasks.instrumented(StepFour.class, password, confirmPassword);
     }
 
     public static char[] password(){
@@ -30,9 +38,9 @@ public class StepFour implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        char[] password = password();
-        actor.attemptsTo(Enter.theValue(String.valueOf(password)).into(StepFourPage.PASSWORD),
-                Enter.theValue(String.valueOf(password)).into(StepFourPage.CONFIRM_PASSWORD),
+        //char[] password = password();
+        actor.attemptsTo(Enter.theValue(password).into(StepFourPage.PASSWORD),
+                Enter.theValue(confirmPassword).into(StepFourPage.CONFIRM_PASSWORD),
                 Click.on(StepFourPage.STAY_INFORMED),
                 Click.on(StepFourPage.TERM_USE),
                 Click.on(StepFourPage.PRIVACITY_SETTING),
