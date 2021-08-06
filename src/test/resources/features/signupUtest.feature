@@ -13,6 +13,6 @@
       | <welcome> |
 
       Examples:
-        | firstName   | lastName    | email            | language    | city      | zipCode     | password         | confirmPassword  | welcome   |
-        | Jose        | Ballesteros | cvb@cvb.com |  Spanish    | Sincelejo | 700001      | M`(YxK6*4Hs(KPp2 | M`(YxK6*4Hs(KPp2 |Welcome to the world's largest community of freelance software testers! |
+        | firstName   | lastName    | email                | language    | city      | zipCode     | password         | confirmPassword  | welcome                                                                 |
+        | Jose        | Ballesteros | jose@pruebautest.com |  Spanish    | Sincelejo | 700001      | M`(YxK6*4Hs(KPp2 | M`(YxK6*4Hs(KPp2 | Welcome to the world's largest community of freelance software testers! |
 
