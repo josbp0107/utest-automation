@@ -17,32 +17,14 @@ public class StepOne implements Task {
         return Tasks.instrumented(StepOne.class);
     }
 
-    public static String generateMonth(){
-        String month = "number:";
-        int number = (int)(Math.random()*(12)+1);
-        return month+number;
-    }
-
-    public static String generateDay(){
-        String day = "number:";
-        int number = (int)(Math.random()*(28)+1);
-        return day+number;
-    }
-
-    public static String generateYear(){
-        String year = "number:";
-        int number = (int)(Math.random()*((2003 - 1872) + 1)) + 1872;
-        return year+number;
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Enter.theValue(gd.firstName()).into(StepOnePage.FIRST_NAME),
                 Enter.theValue(gd.lastName()).into(StepOnePage.LAST_NAME),
                 Enter.theValue(gd.email()).into(StepOnePage.EMAIL_ADDRESS),
-                SelectFromOptions.byValue(generateMonth()).from(StepOnePage.BIRTH_MONTH),
-                SelectFromOptions.byValue(generateDay()).from(StepOnePage.BIRTH_DAY),
-                SelectFromOptions.byValue(generateYear()).from(StepOnePage.BIRTH_YEAR),
+                SelectFromOptions.byValue(gd.month()).from(StepOnePage.BIRTH_MONTH),
+                SelectFromOptions.byValue(gd.day()).from(StepOnePage.BIRTH_DAY),
+                SelectFromOptions.byValue(gd.year()).from(StepOnePage.BIRTH_YEAR),
                 Enter.theValue("Spanish").into(StepOnePage.LANGUAGES),
                 Click.on(StepOnePage.SELECT_LANGUAGE),
                 Click.on(StepOnePage.NEXT_BUTTON)
