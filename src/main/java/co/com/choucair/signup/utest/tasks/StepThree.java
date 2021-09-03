@@ -1,10 +1,11 @@
 package co.com.choucair.signup.utest.tasks;
 
-import co.com.choucair.signup.utest.userinterface.StepThreePage;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
+
+import static co.com.choucair.signup.utest.userinterface.StepThreePage.*;
 
 public class StepThree implements Task {
 
@@ -15,13 +16,13 @@ public class StepThree implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Click.on(StepThreePage.BRAND_FIELD),
-                Click.on(StepThreePage.SELECT_BRAND),
-                Click.on(StepThreePage.MODEL_FIELD),
-                Click.on(StepThreePage.SELECT_MODEL),
-                Click.on(StepThreePage.OS_FIELD),
-                Click.on(StepThreePage.SELECT_OS),
-                Click.on(StepThreePage.LAST_STEP_BUTTON)
+        actor.attemptsTo(Click.on(BRAND_FIELD),
+                Click.on(SELECT_BRAND),
+                Click.on(MODEL_FIELD),
+                Click.on(SELECT_MODEL),
+                Click.on(OS_FIELD),
+                Click.on(SELECT_OS),
+                Click.on(LAST_STEP_BUTTON)
         );
     }
 }

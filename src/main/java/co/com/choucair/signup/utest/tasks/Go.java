@@ -14,7 +14,6 @@ public class Go implements Task {
         return Tasks.instrumented(Go.class);
     }
 
-    // Execute all actions of our tests
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Open.browserOn(etestPage));

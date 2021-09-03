@@ -1,6 +1,6 @@
 package co.com.choucair.signup.utest.tasks;
 
-import co.com.choucair.signup.utest.userinterface.StepOnePage;
+import co.com.choucair.signup.utest.model.UTestRegisterData;
 import co.com.choucair.signup.utest.util.GenerateData;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -9,36 +9,32 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
 
-public class StepOne implements Task {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String language;
+import static co.com.choucair.signup.utest.userinterface.StepOnePage.*;
 
-    public StepOne(String firstName, String lastName, String email, String language) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.language = language;
+public class StepOne implements Task {
+    UTestRegisterData uTestRegisterData;
+
+    public StepOne(UTestRegisterData uTestRegisterData) {
+        this.uTestRegisterData = uTestRegisterData;
     }
 
     GenerateData gd = new GenerateData();
 
-    public static StepOne addData(String firstName, String lastName, String email, String language) {
-        return Tasks.instrumented(StepOne.class, firstName, lastName, email, language);
+    public static StepOne addBasicInformation(UTestRegisterData uTestRegisterData) {
+        return Tasks.instrumented(StepOne.class,uTestRegisterData);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Enter.theValue(firstName).into(StepOnePage.FIRST_NAME),
-                Enter.theValue(lastName).into(StepOnePage.LAST_NAME),
-                Enter.theValue(email).into(StepOnePage.EMAIL_ADDRESS),
-                SelectFromOptions.byValue(gd.month()).from(StepOnePage.BIRTH_MONTH),
-                SelectFromOptions.byValue(gd.day()).from(StepOnePage.BIRTH_DAY),
-                SelectFromOptions.byValue(gd.year()).from(StepOnePage.BIRTH_YEAR),
-                Enter.theValue(language).into(StepOnePage.LANGUAGES),
-                Click.on(StepOnePage.SELECT_LANGUAGE),
-                Click.on(StepOnePage.NEXT_BUTTON)
+        actor.attemptsTo(Enter.theValue(uTestRegisterData.getFirstName()).into(FIRST_NAME),
+                Enter.theValue(uTestRegisterData.getLastName()).into(LAST_NAME),
+                Enter.theValue(uTestRegisterData.getEmail()).into(EMAIL_ADDRESS),
+                SelectFromOptions.byValue(gd.month()).from(BIRTH_MONTH),
+                SelectFromOptions.byValue(gd.day()).from(BIRTH_DAY),
+                SelectFromOptions.byValue(gd.year()).from(BIRTH_YEAR),
+                Enter.theValue(uTestRegisterData.getLanguage()).into(LANGUAGES),
+                Click.on(SELECT_LANGUAGE),
+                Click.on(NEXT_BUTTON)
         );
     }
 }
